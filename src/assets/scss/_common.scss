@@ -1,0 +1,11 @@
+.hint-box {
+  position: absolute;
+  border: 2px solid $fc-yellow;
+  left: 0;
+  top: 0;
+  width: 95px;
+  height: 20px;
+  border-radius: 5px;
+  animation: blink 2s ease;
+  opacity: 0;
+}

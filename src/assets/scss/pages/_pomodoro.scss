@@ -1,0 +1,75 @@
+.pomodoro {
+  font-family: 'Lato';
+  background: $p-lightgray-300;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  input[type="text"] {
+      width: 100%;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 16px;
+      outline: none;
+      border: 0;
+      margin-top: 8px;
+    }
+  .tabs {
+    @include flex(flex-start, center, row);
+    &__tab {
+      input {
+        display: none;
+        &:checked {
+          & + label {
+            background-color: $p-red;
+            color: $p-lightgray-100;
+          }
+        }
+      }
+      label {
+        padding: 8px 22px;
+        border-radius: 8px 8px 0px 0px;
+        background: #606060;
+        color: $p-gray-500;
+        display: block;
+        font-weight: bold;
+        font-size: 12px;
+        cursor: pointer;
+        transition: 0.2s;
+        margin-right: 5px;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  .list {
+    margin: 2px 0;
+    &__item {
+      padding: 16px 40px;
+      border-radius: 2px;
+      background-color: $p-darkgray;
+      color: $p-lightgray-100;
+      margin-bottom: 2px;
+      position: relative;
+      &__prefix-icon {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &__suffix-icon {
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $p-gray-500;
+      }
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+
+  }
+}

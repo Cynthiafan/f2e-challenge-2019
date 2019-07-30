@@ -1,0 +1,86 @@
+@font-face {
+  font-family: 'pomodoro';
+  src:  url('../fonts/pomodoro.eot?yuirow');
+  src:  url('../fonts/pomodoro.eot?yuirow#iefix') format('embedded-opentype'),
+    url('../fonts/pomodoro.ttf?yuirow') format('truetype'),
+    url('../fonts/pomodoro.woff?yuirow') format('woff'),
+    url('../fonts/pomodoro.svg?yuirow#pomodoro') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'pomodoro' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-complete-color .path1:before {
+  content: "\e903";
+  color: rgb(234, 85, 72);
+}
+.icon-complete-color .path2:before {
+  content: "\e905";
+  margin-left: -1em;
+  color: rgb(49, 105, 1);
+}
+.icon-more:before {
+  content: "\e901";
+}
+.icon-add:before {
+  content: "\e900";
+}
+.icon-analysis:before {
+  content: "\e902";
+}
+.icon-arrow:before {
+  content: "\e904";
+}
+.icon-complete:before {
+  content: "\e906";
+}
+.icon-list:before {
+  content: "\e907";
+}
+.icon-pause:before {
+  content: "\e90a";
+}
+.icon-reset:before {
+  content: "\e90e";
+}
+.icon-ringtone:before {
+  content: "\e90f";
+}
+.icon-start:before {
+  content: "\e912";
+}
+.icon-stop:before {
+  content: "\e913";
+}
+.icon-tomato-red .path1:before {
+  content: "\e915";
+  color: rgb(234, 85, 72);
+}
+.icon-tomato-red .path2:before {
+  content: "\e916";
+  margin-left: -1em;
+  color: rgb(49, 105, 1);
+}
+.icon-tomato-gray .path1:before {
+  content: "\e917";
+  color: rgb(172, 172, 172);
+}
+.icon-tomato-gray .path2:before {
+  content: "\e918";
+  margin-left: -1em;
+  color: rgb(110, 110, 110);
+}

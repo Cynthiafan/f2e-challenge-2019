@@ -1,0 +1,46 @@
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.3s ease;
+}
+
+.slide-enter,
+.slide-leave-to {
+  right: calc(-50vw - 60px);
+}
+
+.slide-enter-to,
+.slide-leave {
+  right: 0;
+}
+
+.expand-enter-active,
+.expand-leave-active {
+  transition: all 0.3s ease;
+}
+
+.expand-enter-to, 
+.expand-leave {
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.expand-enter, 
+.expand-leave-to {
+  overflow: hidden;
+  max-height: none;
+}
+
+@keyframes blink {
+  25% { opacity: 1; }
+  50% { opacity: 0; }
+  75% { opacity: 1; }
+  100% { opacity: 0; }
+}
