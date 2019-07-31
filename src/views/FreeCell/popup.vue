@@ -9,7 +9,14 @@
         button(v-for="btn in (config.buttons || buttons)" :key="btn.text" @click="$emit(btn.action)") {{ btn.text }}
 </template>
 <script>
+import { king } from './image-binary';
+
 export default {
+  data() {
+    return {
+      king,
+    };
+  },
   props: {
     config: {
       type: Object,
@@ -38,9 +45,7 @@ export default {
   },
   computed: {
     moodImage() {
-      return this.mood || this.config.mood
-        ? require(`@/assets/images/free-cell/king_${this.config.mood || this.mood}.png`)
-        : '';
+      return this.mood || this.config.mood ? this.king[this.config.mood || this.mood] : '';
     },
   },
 };

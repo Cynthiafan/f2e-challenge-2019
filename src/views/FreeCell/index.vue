@@ -6,7 +6,7 @@
         div.free-area.free(v-for="(card, i) in freeCards" :key="i" :id="`free-${i}`")
           img.free(
             v-if="card"
-            :src="getCard(card)"
+            :src="cards[card]"
             :id="card"
             draggable="false"
             @mousedown="dragStart"
@@ -26,7 +26,7 @@
             v-for="(card,i) in group.cards"
             :key="card"
             :id="card"
-            :src="getCard(card)"
+            :src="cards[card]"
             :style="`z-index: ${i + 1}`"
             draggable="false"
             @mousedown="dragStart")
@@ -42,7 +42,7 @@
           draggable="false"
           :id="card"
           :key="card"
-          :src="getCard(card)"
+          :src="cards[card]"
           :class="group.length > 12 ? `narrow-card-${j}` : `card-${j}`"
           @mousedown="dragStart"
           @dblclick="autoGetHome")
@@ -64,6 +64,7 @@
 import FooterNav from './footer';
 import Popup from './popup';
 import popupTypes from './popup-types';
+import { cards } from './image-binary';
 
 export default {
   components: {
@@ -72,6 +73,7 @@ export default {
   },
   data() {
     return {
+      cards,
       oldCards: [],
       newCards: [],
       freeCards: ['', '', '', ''],
@@ -95,6 +97,19 @@ export default {
     };
   },
   computed: {
+    allCards() {
+      let cardType = ['S', 'H', 'D', 'C'];
+      let cardMaxNum = 13;
+      let cards = [];
+
+      cardType.forEach(type => {
+        for (let i = 1; i <= cardMaxNum; i++) {
+          cards.push(`${type}-${i}`);
+        }
+      });
+
+      return cards;
+    },
     btnDisabled() {
       let restart = !this.isMoved;
       let undo = !this.movement.length;
@@ -116,17 +131,22 @@ export default {
     },
   },
   created() {
-    localStorage.getItem('fc') ? this.restoreGame() : this.initGame();
-  },
-  mounted() {
-    // this.popupConfig = this.popupTypes.rule;
-    // this.isShowPopup = true;
+    if (localStorage.getItem('fc')) {
+      this.restoreGame();
+    } else {
+      this.initGame();
+      this.showRules();
+    }
   },
   updated() {
     this.checkIsWin();
     this.saveGame();
   },
   methods: {
+    showRules() {
+      this.popupConfig = this.popupTypes.rule;
+      this.isShowPopup = true;
+    },
     changeCardPlace(movingCard, targetPlace, isUndo = false) {
       if (
         !this.isCardsMovable ||
@@ -423,9 +443,6 @@ export default {
       if (type === 'hint') this.giveHint();
       if (type === 'undo') this.undoMovement();
     },
-    getCard(card) {
-      return require(`@/assets/images/free-cell/${card}.png`);
-    },
     resetCards() {
       let copy = JSON.parse(JSON.stringify(this.oldCards));
       copy.forEach((column, i) => {
@@ -459,15 +476,7 @@ export default {
       this.$nextTick(() => this.checkIsWin());
     },
     initGame() {
-      let cardType = ['S', 'H', 'D', 'C'];
-      let cardMaxNum = 13;
-      let cards = [];
-
-      cardType.forEach(type => {
-        for (let i = 1; i <= cardMaxNum; i++) {
-          cards.push(`${type}-${i}`);
-        }
-      });
+      let cards = [...this.allCards];
 
       cards = this.shuffle(cards);
       cards = this.groupBy(cards);
