@@ -160,6 +160,13 @@ export default {
       )
         return;
 
+      if (
+        movingCard[0].classList.contains('card') &&
+        targetPlace.classList.contains('card') &&
+        movingCard[0].parentElement.id.split('-')[1] === targetPlace.parentElement.id.split('-')[1]
+      )
+        return;
+
       let colorGroupRed = ['H', 'D'];
       let [targetType, targetNum] = targetPlace.id.split('-');
       let [type, num] = movingCard[0].id.split('-');
