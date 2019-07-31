@@ -15,6 +15,8 @@
 
 ## 第二關：新接龍
 
+[DEMO](https://f2e-challenge-2019.herokuapp.com/free-cell)
+
 ### 設計
 
 - 設計師：[Daphne](https://challenge.thef2e.com/user/2104)
