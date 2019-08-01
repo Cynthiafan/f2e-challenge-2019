@@ -18,3 +18,17 @@
   font-weight: 200;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Noto Sans CJK TC';
+  src: url('~@/assets/fonts/NotoSansCJKtc-DemiLight.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans CJK TC';
+  src: url('~@/assets/fonts/NotoSansCJKtc-Medium.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}

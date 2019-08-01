@@ -4,3 +4,6 @@
   align-items: $align;
   flex-direction: $direction;
 }
+@mixin bg-gradient($start-color, $end-color, $direction) {
+  background: linear-gradient($direction, $start-color 0%, $end-color 100%);
+}

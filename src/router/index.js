@@ -32,5 +32,37 @@ export default new Router({
         title: 'W2 - 新接龍',
       },
     },
+    {
+      path: '/online-payment',
+      component: lazyLoading('OnlinePayment', true),
+      meta: {
+        title: 'W4 - 線上付款',
+      },
+      children: [
+        {
+          path: '',
+          redirect: { name: 'onlinePayment' },
+        },
+        {
+          path: 'method',
+          name: 'onlinePayment',
+          component: lazyLoading('OnlinePayment/stepMethod'),
+        },
+        {
+          path: 'information/:method',
+          name: 'paymentInformation',
+          component: lazyLoading('OnlinePayment/stepForm'),
+        },
+        {
+          path: 'finish',
+          name: 'paymentFinish',
+          component: lazyLoading('OnlinePayment/stepFinish'),
+        },
+      ],
+    },
+    {
+      path: '*',
+      redirect: { name: 'home' },
+    },
   ],
 });

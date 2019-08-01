@@ -1,0 +1,51 @@
+.online-payment {
+  padding: 114px 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+  font-family: 'Noto Sans CJK TC';
+  @include flex(center, center, row);
+  input[type='text'],input[type='number'] {
+    border: 1px solid $op-darkgray-light;
+    border-radius: 5px;
+    padding: 8px 10px;
+    outline: none;
+  }
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+  }
+  .step-title {
+    text-align:center;
+    margin-bottom: 50px;
+    &__main {
+      position: relative;
+      display: inline-block;
+      font-weight: bold;
+      font-size: 20px;
+      &:after {
+        content: '';
+        position: absolute;
+        width: 110%;
+        top: 50%;
+        left: -5%;
+        height: 60%;
+        background: $op-green-lighter;
+        z-index: -1;
+      }
+    }
+    &__sub {
+      margin-top: 10px;
+      font-size: 13px;
+    }
+  }
+  .step-btn {
+    &--next {
+      background-color: $op-darkgreen;
+      border-radius: 5px;
+      padding: 8px 16px;
+      color: $op-white;
+      cursor: pointer;
+    }
+  }
+}
