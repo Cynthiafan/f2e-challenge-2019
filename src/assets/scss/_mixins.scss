@@ -7,3 +7,16 @@
 @mixin bg-gradient($start-color, $end-color, $direction) {
   background: linear-gradient($direction, $start-color 0%, $end-color 100%);
 }
+
+$lgw: 1370px;
+$mdw: 1000px;
+$sdw: 750px;
+$ssw: 340px;
+$smw: $mdw - 200;
+$ssw: 320px;
+$breakpoints: ( 'md': 'screen and (max-width: #{$lgw})', 'mmd': 'screen and (max-width: #{$smw})', 'sm': 'screen and (max-width: #{$mdw})', 'ssm': 'screen and (max-width: #{$sdw})', 'ss': 'screen and (max-width: #{$ssw})');
+@mixin respond-to($name) {
+  @media #{map-get($breakpoints, $name)} {
+    @content;
+  }
+}

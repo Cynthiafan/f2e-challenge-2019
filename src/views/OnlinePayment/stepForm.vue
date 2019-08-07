@@ -28,7 +28,8 @@ export default {
   },
   computed: {
     method() {
-      return this.$route.params.method;
+      let ret = this.$route.params.method;
+      return ret === 'transfer' ? 'web-atm' : ret;
     },
   },
 };

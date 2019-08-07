@@ -29,6 +29,7 @@
 .expand-enter-to, 
 .expand-leave {
   max-height: 200px;
+  height: auto;
   overflow: hidden;
 }
 
@@ -36,6 +37,7 @@
 .expand-leave-to {
   overflow: hidden;
   max-height: none;
+  height: 0px;
 }
 
 @keyframes blink {

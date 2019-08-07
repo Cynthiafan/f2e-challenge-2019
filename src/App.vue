@@ -4,6 +4,8 @@
 </template>
 
 <style lang="scss">
+@import '~@/assets/css/common.css'; // font-icon
+@import '~@/assets/css/animate.css';
 #app {
 }
 </style>

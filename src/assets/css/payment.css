@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'payment';
+  src:  url('../fonts/payment.eot?hdd4sx');
+  src:  url('../fonts/payment.eot?hdd4sx#iefix') format('embedded-opentype'),
+    url('../fonts/payment.ttf?hdd4sx') format('truetype'),
+    url('../fonts/payment.woff?hdd4sx') format('woff'),
+    url('../fonts/payment.svg?hdd4sx#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'payment' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-unionpay:before {
+  content: "\e904";
+}
+.icon-visa:before {
+  content: "\e901";
+}
+.icon-mastercard:before {
+  content: "\e902";
+}
+.icon-jcb:before {
+  content: "\e903";
+}
+.icon-atm:before {
+  content: "\e900";
+}
+.icon-credit-card:before {
+  content: "\e905";
+}
+.icon-finish:before {
+  content: "\e906";
+}
+.icon-footer-background:before {
+  content: "\e907";
+  color: #bdf7dd;
+}
+.icon-shop:before {
+  content: "\e90a";
+}
+.icon-web-atm:before {
+  content: "\e90d";
+}

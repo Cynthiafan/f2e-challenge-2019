@@ -5,7 +5,9 @@
     div.step-method__options
       div.step-method__options__opt(v-for="opt in paymentMethods" :key="opt.value")
         input(type="radio" name="method" :id="opt.value" :value="opt.value" v-model="selectedMethod")
-        label(:for="opt.value") {{ opt.label }}
+        label(:for="opt.value") 
+          i(:class="`icon-${opt.icon}`")
+          | {{ opt.label }}
     div.step-btn 
       button.step-btn--next(@click="$router.push({ name: 'paymentInformation', params: { method: selectedMethod } })") 下一步
 </template>
@@ -18,22 +20,27 @@ export default {
         {
           label: '信用卡/金融卡',
           value: 'card',
+          icon: 'credit-card',
         },
         {
           label: '銀聯卡',
           value: 'unionPay',
+          icon: 'unionpay',
         },
         {
           label: '超商付款',
           value: 'cStore',
+          icon: 'shop',
         },
         {
           label: 'Web ATM',
           value: 'webAtm',
+          icon: 'web-atm',
         },
         {
           label: 'ATM 轉帳',
           value: 'transfer',
+          icon: 'atm',
         },
       ],
     };
@@ -53,10 +60,13 @@ export default {
         &:checked + label {
           background-color: $op-darkgreen;
           color: $op-white;
+          img {
+            fill: white;
+          }
         }
       }
       label {
-        @include flex(center, center, row);
+        @include flex(center, center, column);
         background-color: $op-lightgray-bold;
         border-radius: 5px;
         width: 150px;
@@ -65,6 +75,25 @@ export default {
         transition: 0.2s;
         font-size: 14px;
         cursor: pointer;
+        @include respond-to(sm) {
+          width: 130px;
+          height: 130px;
+        }
+        i {
+          font-size: 50px;
+          line-height: 1;
+          margin-bottom: 10px;
+          @include respond-to(sm) {
+            font-size: 40px;
+          }
+          &.icon-unionpay {
+            font-size: 70px;
+            margin-bottom: 0px;
+            @include respond-to(sm) {
+              font-size: 50px;
+            }
+          }
+        }
       }
     }
   }
@@ -74,4 +103,3 @@ export default {
   }
 }
 </style>
-

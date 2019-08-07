@@ -5,7 +5,3 @@ router.beforeEach((to, from, next) => {
 
   return next();
 });
-
-// router.afterEach((to, from) => {
-
-// })

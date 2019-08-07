@@ -47,16 +47,25 @@ export default new Router({
           path: 'method',
           name: 'onlinePayment',
           component: lazyLoading('OnlinePayment/stepMethod'),
+          meta: {
+            title: 'W4 - 線上付款',
+          },
         },
         {
           path: 'information/:method',
           name: 'paymentInformation',
           component: lazyLoading('OnlinePayment/stepForm'),
+          meta: {
+            title: 'W4 - 線上付款',
+          },
         },
         {
           path: 'finish',
           name: 'paymentFinish',
           component: lazyLoading('OnlinePayment/stepFinish'),
+          meta: {
+            title: 'W4 - 線上付款',
+          },
         },
       ],
     },
